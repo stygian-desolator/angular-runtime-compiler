@@ -1,0 +1,13 @@
+<h1>{{ name }}</h1>
+<textarea [(ngModel)]="text" cols="200" rows="20"></textarea>
+<button (click)="generate()">Load Via Jit Compiler</button>
+<br />
+<div class="dynamic-area" *ngIf="dynamicTemplate">
+  <ng-container
+    *ngComponentOutlet="
+      dynamicTemplate.component;
+      ngModuleFactory: dynamicTemplate.moduleFactory
+    "
+  ></ng-container>
+</div>
+<br />
